@@ -1,0 +1,26 @@
+[
+  {
+    "term": "const",
+    "coef_log_odds": -2.6026896854443855,
+    "odds_ratio": 0.07407407407407395,
+    "ci_lower_odds_ratio": 0.026827247298545593,
+    "ci_upper_odds_ratio": 0.20452968539298716,
+    "p_value": 5.095560353719215e-07
+  },
+  {
+    "term": "aware_yes",
+    "coef_log_odds": 2.535248404648853,
+    "odds_ratio": 12.619565217391324,
+    "ci_lower_odds_ratio": 4.211421669617146,
+    "ci_upper_odds_ratio": 37.81464758680183,
+    "p_value": 5.958521533798152e-06
+  },
+  {
+    "term": "graduate",
+    "coef_log_odds": 1.216395324324495,
+    "odds_ratio": 3.375000000000006,
+    "ci_lower_odds_ratio": 0.9408045771262487,
+    "ci_upper_odds_ratio": 12.107323111451558,
+    "p_value": 0.0619890152193316
+  }
+]
