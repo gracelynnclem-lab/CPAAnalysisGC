@@ -1,0 +1,47 @@
+name: Question 2 Reproducible Analysis
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install analysis dependencies
+        run: pip install -r analysis/requirements.txt
+
+      - name: Run Question 2 analysis pipeline
+        run: python analysis/question2_analysis.py
+
+      - name: Validate required outputs exist
+        run: |
+          test -s outputs/question2_cleaned_dataset.csv
+          test -s outputs/question2_segment_counts.csv
+          test -s outputs/question2_outcome_rates.csv
+          test -s outputs/question2_logistic_regression.csv
+          test -s outputs/question2_logistic_regression.json
+          test -s outputs/question2_summary.md
+          test -s outputs/question2_logistic_regression_plot.svg
+
+      - name: Upload outputs as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: question2-analysis-outputs
+          path: |
+            outputs/question2_cleaned_dataset.csv
+            outputs/question2_segment_counts.csv
+            outputs/question2_outcome_rates.csv
+            outputs/question2_logistic_regression.csv
+            outputs/question2_logistic_regression.json
+            outputs/question2_summary.md
+            outputs/question2_logistic_regression_plot.svg
